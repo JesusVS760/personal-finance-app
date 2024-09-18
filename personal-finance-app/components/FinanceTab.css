@@ -1,6 +1,7 @@
 .finance-tab-container {
   background: black;
-  max-width: 350px;
+  max-width: 100%;
+  width: 350px;
   height: 100vh;
   border-radius: 0px 15px 15px 0px;
 }
@@ -29,7 +30,7 @@
 }
 .finance-minimize-menu {
   padding: 15px;
-  margin-top: 100%;
+  /* margin-top: 100%; */
 }
 .finance-minimize-menu button {
   display: flex;
