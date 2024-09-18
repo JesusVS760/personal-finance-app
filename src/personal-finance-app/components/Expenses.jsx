@@ -5,8 +5,8 @@ const Expenses = () => {
   const [expense, setExpense] = useState(0);
   return (
     <div className="expenses-container">
-      <h4>Expenses</h4>
-      <h1>${expense}</h1>
+      <h4 className="text-2xl">Expenses</h4>
+      <h1 className="text-xl">${expense}</h1>
     </div>
   );
 };

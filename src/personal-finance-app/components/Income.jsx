@@ -5,8 +5,8 @@ const Income = () => {
 
   return (
     <div className="income-container">
-      <h4>Income</h4>
-      <h1>${income}</h1>
+      <h4 className="text-2xl">Income</h4>
+      <h1 className="text-xl">${income}</h1>
     </div>
   );
 };

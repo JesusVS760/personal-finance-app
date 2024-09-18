@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FinanceTab.css";
 import close from "../starter-code/assets/images/icon-minimize-menu.svg";
 import overviewImage from "../starter-code/assets/images/icon-nav-overview.svg";
@@ -6,46 +6,64 @@ import transactionsImage from "../starter-code/assets/images/icon-nav-transactio
 import budgetsImage from "../starter-code/assets/images/icon-nav-budgets.svg";
 import potsImage from "../starter-code/assets/images/icon-nav-pots.svg";
 import recurringImage from "../starter-code/assets/images/icon-nav-recurring-bills.svg";
+import { useNavigate } from "react-router-dom";
+import { Menu } from "lucide-react";
 
 const FinanceTab = () => {
+  // const navigate = useNavigate();
+  const [minimize, setMinimize] = useState(true);
+
+  const handleNextPage = () => {
+    console.log("entered");
+  };
+
   return (
-    <div className="finance-tab-container bg-black-500">
-      <div className="finance-tab-heading">
-        <h1>Finance</h1>
-      </div>
-      <div className="finance-content">
-        <div className="finance-buttons">
-          <button>
-            {" "}
-            <img src={overviewImage} alt="overview image" />
-            Overview
-          </button>
-          <button>
-            <img src={transactionsImage} alt="trans image" />
-            Transactions
-          </button>
-          <button>
-            <img src={budgetsImage} alt="" />
-            Budgets
-          </button>
-          <button>
-            <img src={potsImage} alt="pots image" />
-            Pots
-          </button>
-          <button>
-            <img src={recurringImage} alt="reccurring image" />
-            Recurring Bills
-          </button>
+    <>
+      {minimize && (
+        <div className="finance-tab-container bg-black-500">
+          <div className="finance-tab-heading text-primary-color font-bold text-3xl">
+            <h1>Finance</h1>
+          </div>
+          <div className="finance-content">
+            <div className="finance-buttons">
+              <button>
+                <img src={overviewImage} alt="overview image" />
+                Overview
+              </button>
+              <button>
+                <img src={transactionsImage} alt="trans image" />
+                Transactions
+              </button>
+              <button>
+                <img src={budgetsImage} alt="" />
+                Budgets
+              </button>
+              <button>
+                <img src={potsImage} alt="pots image" />
+                Pots
+              </button>
+              <button>
+                <img src={recurringImage} alt="reccurring image" />
+                Recurring Bills
+              </button>
+            </div>
+          </div>
+          <div className="finance-minimize-menu">
+            <button onClick={() => setMinimize(!minimize)}>
+              {" "}
+              <img src={close} alt="" />
+              Minimize Menu
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="finance-minimize-menu">
-        <button>
-          {" "}
-          <img src={close} alt="" />
-          Minimize Menu
-        </button>
-      </div>
-    </div>
+      )}
+      {!minimize && (
+        <div className="show-menu" onClick={() => setMinimize(!minimize)}>
+          <Menu size={25} className="text-blue-800" />
+          <button className="text-xl text-blue-800">Show Menu</button>
+        </div>
+      )}
+    </>
   );
 };
 

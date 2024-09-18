@@ -7,7 +7,7 @@ import Expenses from "./Expenses";
 const Overview = () => {
   return (
     <div className="overview-container">
-      <div className="overview-heading">
+      <div className="overview-heading text-2xl font-bold">
         <h1>Overview</h1>
       </div>
       <div className="overview-content">
