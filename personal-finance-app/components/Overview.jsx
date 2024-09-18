@@ -1,5 +1,8 @@
 import React from "react";
-import { CurrBalance } from "./CurrBalance";
+import "./Overview.css";
+import CurrBalance from "./CurrBalance";
+import Income from "./Income";
+import Expenses from "./Expenses";
 
 const Overview = () => {
   return (
@@ -11,6 +14,12 @@ const Overview = () => {
         <div className="overview-valuation">
           <div className="overview-current-balances">
             <CurrBalance />
+          </div>
+          <div className="overview-income">
+            <Income />
+          </div>
+          <div className="overview-expenses">
+            <Expenses />
           </div>
         </div>
       </div>
