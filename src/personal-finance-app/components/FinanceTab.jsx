@@ -9,7 +9,7 @@ import recurringImage from "../starter-code/assets/images/icon-nav-recurring-bil
 
 const FinanceTab = () => {
   return (
-    <div className="finance-tab-container">
+    <div className="finance-tab-container bg-black-500">
       <div className="finance-tab-heading">
         <h1>Finance</h1>
       </div>
