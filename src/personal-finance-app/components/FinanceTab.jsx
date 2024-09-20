@@ -6,6 +6,8 @@ import transactionsImage from "../starter-code/assets/images/icon-nav-transactio
 import budgetsImage from "../starter-code/assets/images/icon-nav-budgets.svg";
 import potsImage from "../starter-code/assets/images/icon-nav-pots.svg";
 import recurringImage from "../starter-code/assets/images/icon-nav-recurring-bills.svg";
+import logo from "../starter-code/assets/images/logo-large.svg";
+
 import { useNavigate } from "react-router-dom";
 import { Menu } from "lucide-react";
 
@@ -23,7 +25,7 @@ const FinanceTab = () => {
       {minimize && (
         <div className="finance-tab-container bg-black-500">
           <div className="finance-tab-heading text-primary-color font-bold text-3xl">
-            <h1>Finance</h1>
+            <img src={logo} alt="logo" />
           </div>
           <div className="finance-content">
             <div className="finance-buttons">
