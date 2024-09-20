@@ -10,11 +10,12 @@ import { useNavigate } from "react-router-dom";
 import { Menu } from "lucide-react";
 
 const FinanceTab = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [minimize, setMinimize] = useState(true);
 
-  const handleNextPage = () => {
-    console.log("entered");
+  const handleNextPage = (page) => {
+    console.log(page);
+    navigate(page);
   };
 
   return (
@@ -26,23 +27,23 @@ const FinanceTab = () => {
           </div>
           <div className="finance-content">
             <div className="finance-buttons">
-              <button>
+              <button onClick={() => handleNextPage("/")}>
                 <img src={overviewImage} alt="overview image" />
                 Overview
               </button>
-              <button>
+              <button onClick={() => handleNextPage("/Transactions")}>
                 <img src={transactionsImage} alt="trans image" />
                 Transactions
               </button>
-              <button>
+              <button onClick={() => handleNextPage("/Budgets")}>
                 <img src={budgetsImage} alt="" />
                 Budgets
               </button>
-              <button>
+              <button onClick={() => handleNextPage("/Pots")}>
                 <img src={potsImage} alt="pots image" />
                 Pots
               </button>
-              <button>
+              <button onClick={() => handleNextPage("/RecurringBills")}>
                 <img src={recurringImage} alt="reccurring image" />
                 Recurring Bills
               </button>

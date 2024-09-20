@@ -2,15 +2,19 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DashboardLayout from "./personal-finance-app/components/DashboardLayout";
 import HomePage from "./personal-finance-app/pages/HomePage";
+import Transactions from "./personal-finance-app/pages/Transactions";
+import Overview from "./personal-finance-app/pages/Overview";
+import Budgets from "./personal-finance-app/pages/Budgets";
 
 const App = () => {
   return (
-    <div className="app-container bg-shellwhite-500">
+    <div className="app-container bg-slate-500 h-screen">
       <BrowserRouter>
         <Routes>
           <Route element={<DashboardLayout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/transaction" element={<div>Transaction</div>} />
+            <Route path="/" element={<Overview />} />
+            <Route path="/Transactions" element={<Transactions />} />
+            <Route path="/Budgets" element={<Budgets />} />
           </Route>
         </Routes>
       </BrowserRouter>
