@@ -7,7 +7,7 @@ const CurrBalance = () => {
   return (
     <div className="curr-balance-container">
       <h4 className="text-2xl">Current Balance</h4>
-      <h1 className="text-xl">${balance}</h1>
+      <h1 className="text-3xl">${balance}</h1>
     </div>
   );
 };

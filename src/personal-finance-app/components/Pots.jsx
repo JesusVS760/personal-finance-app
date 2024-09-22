@@ -22,7 +22,7 @@ const Pots = () => {
         </div>
       </div>
       <div className="pots-content flex flex-row">
-        <div className="pots-saved-total flex align-center gap-8 bg-gray-500 w-fit px-12 py-5 rounded-md">
+        <div className="pots-saved-total flex gap-8 bg-gray-500  pl-5 px-24 pt-10 rounded-md">
           <div className="pots-saved-total-img">
             <img className="pots-image w-11" src={savedSign} alt="" />
           </div>
@@ -31,22 +31,22 @@ const Pots = () => {
             <h2 className="saved-amount text-2xl">${saved}</h2>
           </div>
         </div>
-        <div className="pots-more flex flex-row justify-between">
-          <div className="pots-savings ">
+        <div className="pots-more grid grid-rows-2 grid-cols-2 gap-4 ml-8">
+          <div className="pots-savings bg-slate-400 p-2 rounded-sm border-l-4 border-blue-700 pl-4">
             <h5>Savings</h5>
-            <h2>${savings}</h2>
+            <h2 className="font-bold">${savings}</h2>
           </div>
-          <div className="pots-gift">
+          <div className="pots-gift bg-slate-400 p-2 rounded-sm border-l-4 border-green-500 pl-4">
             <h5>Gift</h5>
-            <h2>${firstPurchase}</h2>
+            <h2 className="font-bold">${firstPurchase}</h2>
           </div>
-          <div className="pots-concert">
+          <div className="pots-concert bg-slate-400 p-2 rounded-sm border-l-4 border-purple-500 pl-4">
             <h5>Concert Ticket</h5>
-            <h2>${secondPurchase}</h2>
+            <h2 className="font-bold">${secondPurchase}</h2>
           </div>
-          <div className="pots-purchase">
+          <div className="pots-purchase bg-slate-400 p-2 rounded-sm border-l-4 border-yellow-500 pl-4">
             <h5>New Laptop</h5>
-            <h2>${thirdPurchase}</h2>
+            <h2 className="font-bold">${thirdPurchase}</h2>
           </div>
         </div>
       </div>

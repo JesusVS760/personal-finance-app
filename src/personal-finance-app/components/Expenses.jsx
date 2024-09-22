@@ -6,7 +6,7 @@ const Expenses = () => {
   return (
     <div className="expenses-container bg-white">
       <h4 className="text-2xl">Expenses</h4>
-      <h1 className="text-xl">${expense}</h1>
+      <h1 className="text-3xl">${expense}</h1>
     </div>
   );
 };

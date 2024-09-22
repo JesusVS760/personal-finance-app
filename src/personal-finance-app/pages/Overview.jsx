@@ -9,7 +9,7 @@ const Overview = () => {
   return (
     <div className="overview-container">
       <div className="overview-heading text-2xl font-bold">
-        <h1>Overview</h1>
+        <h1 className="text-3xl">Overview</h1>
       </div>
       <div className="overview-content flex flex-col">
         <div className="overview-valuation">
