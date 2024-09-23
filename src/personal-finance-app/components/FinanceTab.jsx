@@ -24,35 +24,53 @@ const FinanceTab = () => {
     <>
       {minimize && (
         <div className="finance-tab-container bg-black-500">
-          <div className="finance-tab-heading text-primary-color font-bold text-3xl">
+          <div className="finance-tab-heading">
             <img src={logo} alt="logo" />
           </div>
           <div className="finance-content">
             <div className="finance-buttons">
-              <button onClick={() => handleNextPage("/")}>
+              <button
+                className="hover:bg-white ease-in duration-200 hover:text-black hover:font-bold hover:border-l-2 border-green-600"
+                onClick={() => handleNextPage("/")}
+              >
                 <img src={overviewImage} alt="overview image" />
                 Overview
               </button>
-              <button onClick={() => handleNextPage("/Transactions")}>
+              <button
+                className="hover:bg-white ease-in duration-200 hover:text-black hover:font-bold  hover:border-l-2 border-green-600"
+                onClick={() => handleNextPage("/Transactions")}
+              >
                 <img src={transactionsImage} alt="trans image" />
                 Transactions
               </button>
-              <button onClick={() => handleNextPage("/Budgets")}>
+              <button
+                className="hover:bg-white ease-in duration-200 hover:text-black hover:font-bold  hover:border-l-2 border-green-600"
+                onClick={() => handleNextPage("/Budgets")}
+              >
                 <img src={budgetsImage} alt="" />
                 Budgets
               </button>
-              <button onClick={() => handleNextPage("/Pots")}>
+              <button
+                className="hover:bg-white ease-in duration-200 hover:text-black hover:font-bold  hover:border-l-2 border-green-600"
+                onClick={() => handleNextPage("/Pots")}
+              >
                 <img src={potsImage} alt="pots image" />
                 Pots
               </button>
-              <button onClick={() => handleNextPage("/RecurringBills")}>
+              <button
+                className="hover:bg-white ease-in duration-200 hover:text-black hover:font-bold  hover:border-l-2 border-green-600"
+                onClick={() => handleNextPage("/RecurringBills")}
+              >
                 <img src={recurringImage} alt="reccurring image" />
                 Recurring Bills
               </button>
             </div>
           </div>
           <div className="finance-minimize-menu">
-            <button onClick={() => setMinimize(!minimize)}>
+            <button
+              className="hover:bg-white ease-in duration-200 hover:text-black hover:font-bold p-2 rounded-md"
+              onClick={() => setMinimize(!minimize)}
+            >
               {" "}
               <img src={close} alt="" />
               Minimize Menu

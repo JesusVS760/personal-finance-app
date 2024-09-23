@@ -1,9 +1,9 @@
 import React from "react";
 import "./Overview.css";
-import CurrBalance from "../components/CurrBalance";
-import Income from "../components/Income";
-import Expenses from "../components/Expenses";
-import Pots from "../components/Pots";
+import CurrBalance from "../components/overviewPageComonents/CurrBalance";
+import Income from "../components/overviewPageComonents/Income";
+import Expenses from "../components/overviewPageComonents/Expenses";
+import Pots from "../components/overviewPageComonents/Pots";
 
 const Overview = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import arrow from "../starter-code/assets/images/icon-caret-right.svg";
-import savedSign from "../starter-code/assets/images/icon-nav-pots.svg";
+import arrow from "../../starter-code/assets/images/icon-caret-right.svg";
+import savedSign from "../../starter-code/assets/images/icon-nav-pots.svg";
 const Pots = () => {
   const [saved, setSaved] = useState(0);
   const [savings, setSavings] = useState(0);
@@ -17,14 +17,14 @@ const Pots = () => {
         <div className="pots-details">
           <button className="detail-button flex items-center gap-2 cursor-pointer">
             <h3> See Details</h3>
-            <img src={arrow} />
+            <img src={arrow} alt="arrow" />
           </button>
         </div>
       </div>
       <div className="pots-content flex flex-row">
         <div className="pots-saved-total flex gap-8 bg-gray-500  pl-5 px-24 pt-10 rounded-md">
           <div className="pots-saved-total-img">
-            <img className="pots-image w-11" src={savedSign} alt="" />
+            <img className="pots-image w-11" src={savedSign} alt="saved" />
           </div>
           <div className="pots-saved-total-value text-white">
             <h4>Total Saved</h4>
