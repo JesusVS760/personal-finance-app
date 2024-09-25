@@ -5,7 +5,7 @@ import Income from "../components/overviewPageComonents/Income";
 import Expenses from "../components/overviewPageComonents/Expenses";
 import Pots from "../components/overviewPageComonents/Pots";
 
-const Overview = () => {
+const Overview = ({ balance, potsContent }) => {
   return (
     <div className="overview-container">
       <div className="overview-heading text-2xl font-bold">
@@ -14,17 +14,17 @@ const Overview = () => {
       <div className="overview-content flex flex-col">
         <div className="overview-valuation">
           <div className="overview-current-balances">
-            <CurrBalance />
+            <CurrBalance currBalance={balance.current} />
           </div>
           <div className="overview-income">
-            <Income />
+            <Income incomeValue={balance.income} />
           </div>
           <div className="overview-expenses">
-            <Expenses />
+            <Expenses expenses={balance.expenses} />
           </div>
         </div>
         <div className="overview-left-side">
-          <Pots />
+          <Pots pots={potsContent} />
         </div>
       </div>
     </div>

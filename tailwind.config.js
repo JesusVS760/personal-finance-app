@@ -4,6 +4,13 @@ export default {
   theme: {
     extend: {
       textColor: { "primary-color": "#eb4034" },
+      colors: {
+        // Define your custom colors here
+        theme1: "#277C78",
+        theme2: "#626070",
+        theme3: "#82C9D7",
+        theme4: "#F2CDAC",
+      },
     },
   },
   plugins: [],

@@ -1,12 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import arrow from "../../starter-code/assets/images/icon-caret-right.svg";
 import savedSign from "../../starter-code/assets/images/icon-nav-pots.svg";
-const Pots = () => {
+const Pots = ({ pots }) => {
   const [saved, setSaved] = useState(0);
-  const [savings, setSavings] = useState(0);
-  const [firstPurchase, setFirstPurchase] = useState(0);
-  const [secondPurchase, setSecondPurchase] = useState(0);
-  const [thirdPurchase, setThirdPurchase] = useState(0);
+
+  useEffect(() => {
+    const getTotal = pots
+      .filter((pot) => pot.total >= 0)
+      .map((pot) => pot.total)
+      .reduce((acc, current) => acc + current, 0);
+
+    setSaved(getTotal);
+  }, [pots]);
+
+  const potsValues = pots
+    .filter((pot) => pot.name !== "") // Only keep pots with a non-empty name
+    .map((pot) => pot); // Extract the names
+
+  const potsToDisplay = potsValues.slice(0, 4);
+
+  const getBorderColor = (theme) => {
+    switch (theme) {
+      case "#277C78":
+        return "border-theme1";
+      case "#626070":
+        return "border-theme2";
+      case "#82C9D7":
+        return "border-theme3";
+      case "#F2CDAC":
+        return "border-theme4";
+    }
+  };
 
   return (
     <div className="pots-container rounded-xl p-7 max-w-2xl bg-white mt-20">
@@ -22,32 +46,30 @@ const Pots = () => {
         </div>
       </div>
       <div className="pots-content flex flex-row">
-        <div className="pots-saved-total flex gap-8 bg-gray-500  pl-5 px-24 pt-10 rounded-md">
+        <div className="pots-saved-total flex gap-8 bg-slate-200  pl-5 px-24 pt-10 rounded-md">
           <div className="pots-saved-total-img">
             <img className="pots-image w-11" src={savedSign} alt="saved" />
           </div>
           <div className="pots-saved-total-value text-white">
-            <h4>Total Saved</h4>
-            <h2 className="saved-amount text-2xl">${saved}</h2>
+            <h4 className="text-gray-500">Total Saved</h4>
+            <h2 className="saved-amount text-black font-bold text-3xl">
+              ${saved}
+            </h2>
           </div>
         </div>
+
         <div className="pots-more grid grid-rows-2 grid-cols-2 gap-4 ml-8">
-          <div className="pots-savings bg-slate-400 p-2 rounded-sm border-l-4 border-blue-700 pl-4">
-            <h5>Savings</h5>
-            <h2 className="font-bold">${savings}</h2>
-          </div>
-          <div className="pots-gift bg-slate-400 p-2 rounded-sm border-l-4 border-green-500 pl-4">
-            <h5>Gift</h5>
-            <h2 className="font-bold">${firstPurchase}</h2>
-          </div>
-          <div className="pots-concert bg-slate-400 p-2 rounded-sm border-l-4 border-purple-500 pl-4">
-            <h5>Concert Ticket</h5>
-            <h2 className="font-bold">${secondPurchase}</h2>
-          </div>
-          <div className="pots-purchase bg-slate-400 p-2 rounded-sm border-l-4 border-yellow-500 pl-4">
-            <h5>New Laptop</h5>
-            <h2 className="font-bold">${thirdPurchase}</h2>
-          </div>
+          {potsToDisplay.map((pot) => (
+            <div
+              key={pot.name}
+              className={`pots-savings bg-slate-200 p-2 rounded-sm border-l-4 ${getBorderColor(
+                pot.theme
+              )} pl-4`}
+            >
+              <h5>{pot.name}</h5>
+              <h2 className="font-bold">${pot.total}</h2>
+            </div>
+          ))}
         </div>
       </div>
     </div>

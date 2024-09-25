@@ -23,7 +23,7 @@ const FinanceTab = () => {
   return (
     <>
       {minimize && (
-        <div className="finance-tab-container bg-black-500">
+        <div className="finance-tab-container bg-black">
           <div className="finance-tab-heading">
             <img src={logo} alt="logo" />
           </div>
