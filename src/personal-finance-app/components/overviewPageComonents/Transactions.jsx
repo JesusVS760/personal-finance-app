@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 import arrow from "../../starter-code/assets/images/icon-caret-right.svg";
-
 const Transactions = ({ transactionValues }) => {
   const [isCard, setIsCard] = useState(true);
   const [displayPreview, setDisplayPreview] = useState([]);
 
-  const validTransactions = transactionValues
-    .filter((transaction) => transaction.name != "")
-    .map((transaction) => transaction);
-
-  console.log(validTransactions);
-
   useEffect(() => {
+    const validTransactions = transactionValues
+      .filter((transaction) => transaction.name != "")
+      .map((transaction) => transaction);
+
     if (isCard) {
       setDisplayPreview(validTransactions.splice(0, 5));
     }
+    console.log(validTransactions);
   }, []);
 
   return (
@@ -29,7 +27,9 @@ const Transactions = ({ transactionValues }) => {
       {displayPreview.map((transaction) => (
         <div key={transaction.name} className="transactions-card flex">
           <div className="transaction-info  mr-auto">
-            <img src={`../../starter-code${transaction.avatar}`} alt="" />
+            <img
+              src={`../../starter-code/${transaction.avatar.replace("./", "")}`}
+            />
             <p>{transaction.name}</p>
           </div>
           <div className="transactions-value">
