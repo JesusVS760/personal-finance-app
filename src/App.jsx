@@ -23,6 +23,7 @@ const App = () => {
                 <Overview
                   balance={receivedData.balance}
                   potsContent={receivedData.pots}
+                  transactionsContent={receivedData.transactions}
                 />
               }
             />

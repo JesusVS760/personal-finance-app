@@ -13,9 +13,7 @@ const Pots = ({ pots }) => {
     setSaved(getTotal);
   }, [pots]);
 
-  const potsValues = pots
-    .filter((pot) => pot.name !== "") // Only keep pots with a non-empty name
-    .map((pot) => pot); // Extract the names
+  const potsValues = pots.filter((pot) => pot.name !== "").map((pot) => pot); // Extract the names
 
   const potsToDisplay = potsValues.slice(0, 4);
 
