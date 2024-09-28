@@ -8,7 +8,7 @@ import Transactions from "../components/overviewPageComonents/Transactions";
 
 const Overview = ({ balance, potsContent, transactionsContent }) => {
   return (
-    <div className="overview-container">
+    <div className="overview-container h-screen">
       <div className="overview-heading text-2xl font-bold">
         <h1 className="text-3xl">Overview</h1>
       </div>

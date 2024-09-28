@@ -31,7 +31,7 @@ const Pots = ({ pots }) => {
   };
 
   return (
-    <div className="pots-container rounded-xl p-7 max-w-2xl bg-white mt-20">
+    <div className="pots-container rounded-xl p-7 max-w-2xl bg-white mt-10">
       <div className="pots-heading flex flex-row">
         <div className="pots-title mr-auto mb-10">
           <h3 className="text-2xl font-bold">Pots</h3>
