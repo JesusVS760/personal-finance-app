@@ -25,8 +25,12 @@ const Overview = ({ balance, potsContent, transactionsContent }) => {
           </div>
         </div>
         <div className="overview-left-side">
-          <Pots pots={potsContent} />
-          <Transactions transactionValues={transactionsContent} card={true} />
+          <Pots pots={potsContent} card={true} />
+          <Transactions
+            transactionValues={transactionsContent}
+            card={true}
+            pageIdentifier="overview"
+          />
         </div>
       </div>
     </div>

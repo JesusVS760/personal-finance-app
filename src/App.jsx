@@ -6,6 +6,7 @@ import Transactions from "./personal-finance-app/components/overviewPageComonent
 import Overview from "./personal-finance-app/pages/Overview";
 import Budgets from "./personal-finance-app/pages/Budgets";
 import data from "./personal-finance-app/starter-code/data.json";
+import Pots from "./personal-finance-app/components/overviewPageComonents/Pots";
 
 const App = () => {
   const [receivedData, setReceivedData] = useState(data);
@@ -37,6 +38,7 @@ const App = () => {
               path="/Budgets"
               element={<Budgets budgetsContent={receivedData.budgets} />}
             />
+            <Route path="/Pots" element={<Pots pots={receivedData.pots} />} />
           </Route>
         </Routes>
       </BrowserRouter>

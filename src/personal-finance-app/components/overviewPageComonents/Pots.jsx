@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import arrow from "../../starter-code/assets/images/icon-caret-right.svg";
 import savedSign from "../../starter-code/assets/images/icon-nav-pots.svg";
-const Pots = ({ pots }) => {
+import { useNavigate } from "react-router-dom";
+const Pots = ({ pots, card }) => {
   const [saved, setSaved] = useState(0);
+  const [potsUpdated, setPotsUpdated] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getTotal = pots
@@ -11,11 +15,18 @@ const Pots = ({ pots }) => {
       .reduce((acc, current) => acc + current, 0);
 
     setSaved(getTotal);
-  }, [pots]);
+  }, [pots, card]);
 
-  const potsValues = pots.filter((pot) => pot.name !== "").map((pot) => pot); // Extract the names
+  useEffect(() => {
+    const potsValues = pots.filter((pot) => pot.name !== "").map((pot) => pot); // Extract the names
 
-  const potsToDisplay = potsValues.slice(0, 4);
+    if (card) {
+      const potsToDisplay = potsValues.slice(0, 4);
+      setPotsUpdated(potsToDisplay);
+    } else {
+      setPotsUpdated(potsValues);
+    }
+  }, [pots, card]);
 
   const getBorderColor = (theme) => {
     switch (theme) {
@@ -27,28 +38,41 @@ const Pots = ({ pots }) => {
         return "border-theme3";
       case "#F2CDAC":
         return "border-theme4";
+      default:
+        return "border-theme5";
     }
   };
 
   return (
-    <div className="pots-container rounded-xl p-7 max-w-2xl bg-white mt-10">
+    <div
+      className={
+        card
+          ? "pots-container rounded-xl p-7 max-w-2xl bg-white mt-10"
+          : "flex flex-col "
+      }
+    >
       <div className="pots-heading flex flex-row">
         <div className="pots-title mr-auto mb-10">
           <h3 className="text-2xl font-bold">Pots</h3>
         </div>
         <div className="pots-details">
-          <button className="detail-button flex items-center gap-2 cursor-pointer">
-            <h3> See Details</h3>
-            <img src={arrow} alt="arrow" />
-          </button>
+          {card && (
+            <button
+              onClick={() => navigate("/Pots")}
+              className="detail-button flex items-center gap-2 cursor-pointer  hover:bg-slate-500 hover:transition ease-in-out delay-100 hover:font-bold hover:p-2 hover:rounded-md"
+            >
+              <h3> See Details</h3>
+              <img src={arrow} alt="arrow" />
+            </button>
+          )}
         </div>
       </div>
-      <div className="pots-content flex flex-row">
-        <div className="pots-saved-total flex gap-8 bg-slate-200  pl-5 px-24 pt-10 rounded-md">
+      <div className={card ? "pots-content flex flex-row" : "flex flex-col "}>
+        <div className="pots-saved-total flex gap-8 bg-slate-200  pl-5 px-24 pt-7 rounded-md mb-8">
           <div className="pots-saved-total-img">
             <img className="pots-image w-11" src={savedSign} alt="saved" />
           </div>
-          <div className="pots-saved-total-value text-white">
+          <div className="pots-saved-total-value text-white ">
             <h4 className="text-gray-500">Total Saved</h4>
             <h2 className="saved-amount text-black font-bold text-3xl">
               ${saved}
@@ -56,11 +80,17 @@ const Pots = ({ pots }) => {
           </div>
         </div>
 
-        <div className="pots-more grid grid-rows-2 grid-cols-2 gap-4 ml-8">
-          {potsToDisplay.map((pot) => (
+        <div
+          className={
+            card
+              ? "pots-more grid grid-rows-2 grid-cols-2 gap-4 ml-8"
+              : "w-full flex flex-col gap-4"
+          }
+        >
+          {potsUpdated.map((pot) => (
             <div
               key={pot.name}
-              className={`pots-savings bg-slate-200 p-2 rounded-sm border-l-4 ${getBorderColor(
+              className={`pots-savings bg-white p-2  rounded-sm border-l-4 ${getBorderColor(
                 pot.theme
               )} pl-4`}
             >

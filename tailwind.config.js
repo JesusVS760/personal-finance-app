@@ -10,6 +10,7 @@ export default {
         theme2: "#626070",
         theme3: "#82C9D7",
         theme4: "#F2CDAC",
+        theme5: "#DE3163",
       },
     },
   },
