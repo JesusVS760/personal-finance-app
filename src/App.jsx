@@ -27,7 +27,12 @@ const App = () => {
                 />
               }
             />
-            <Route path="/Transactions" element={<Transactions />} />
+            <Route
+              path="/Transactions"
+              element={
+                <Transactions transactionValues={receivedData.transactions} />
+              }
+            />
             <Route
               path="/Budgets"
               element={<Budgets budgetsContent={receivedData.budgets} />}

@@ -4,7 +4,7 @@ import FinanceTab from "./FinanceTab";
 
 const DashboardLayout = () => {
   return (
-    <div className="homepage-container">
+    <div className="homepage-container ">
       <div className="sidebar-finance">
         <FinanceTab />
       </div>

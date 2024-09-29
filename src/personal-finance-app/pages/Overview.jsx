@@ -8,7 +8,7 @@ import Transactions from "../components/overviewPageComonents/Transactions";
 
 const Overview = ({ balance, potsContent, transactionsContent }) => {
   return (
-    <div className="overview-container h-screen">
+    <div className="overview-container w-screen max-h-screen overflow-auto">
       <div className="overview-heading text-2xl font-bold">
         <h1 className="text-3xl">Overview</h1>
       </div>
@@ -26,7 +26,7 @@ const Overview = ({ balance, potsContent, transactionsContent }) => {
         </div>
         <div className="overview-left-side">
           <Pots pots={potsContent} />
-          <Transactions transactionValues={transactionsContent} />
+          <Transactions transactionValues={transactionsContent} card={true} />
         </div>
       </div>
     </div>
