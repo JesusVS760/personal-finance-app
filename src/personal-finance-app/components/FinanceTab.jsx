@@ -79,9 +79,12 @@ const FinanceTab = () => {
         </div>
       )}
       {!minimize && (
-        <div className="show-menu" onClick={() => setMinimize(!minimize)}>
-          <Menu size={25} className="text-blue-800" />
-          <button className="text-xl text-blue-800">Show Menu</button>
+        <div
+          className="show-menu flex flex-row p-2 "
+          onClick={() => setMinimize(!minimize)}
+        >
+          <Menu size={25} className="text-blue-800 font-bold" />
+          <button className="text-xl text-blue-800 font-bold">Show Menu</button>
         </div>
       )}
     </>

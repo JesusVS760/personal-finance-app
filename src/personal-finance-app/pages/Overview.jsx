@@ -24,7 +24,7 @@ const Overview = ({ balance, potsContent, transactionsContent }) => {
             <Expenses expenses={balance.expenses} />
           </div>
         </div>
-        <div className="overview-left-side">
+        <div className="overview-left-side ">
           <Pots pots={potsContent} card={true} />
           <Transactions
             transactionValues={transactionsContent}

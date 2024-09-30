@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import arrow from "../../starter-code/assets/images/icon-caret-right.svg";
 import savedSign from "../../starter-code/assets/images/icon-nav-pots.svg";
 import { useNavigate } from "react-router-dom";
+import AddPot from "./AddPot";
 const Pots = ({ pots, card }) => {
   const [saved, setSaved] = useState(0);
   const [potsUpdated, setPotsUpdated] = useState([]);
@@ -43,12 +44,18 @@ const Pots = ({ pots, card }) => {
     }
   };
 
+  // callback function for receiving new pots
+  const receiveNewPot = (pot) => {
+    setPotsUpdated(...potsUpdated, pot);
+    console.log(pot);
+  };
+
   return (
     <div
       className={
         card
           ? "pots-container rounded-xl p-7 max-w-2xl bg-white mt-10"
-          : "flex flex-col "
+          : "flex flex-col w-full"
       }
     >
       <div className="pots-heading flex flex-row">
@@ -67,11 +74,7 @@ const Pots = ({ pots, card }) => {
           )}
         </div>
       </div>
-      <div
-        className={
-          card ? "pots-content flex flex-row" : "flex flex-col max-w-screen-lg"
-        }
-      >
+      <div className={card ? "pots-content flex flex-row" : "flex flex-col "}>
         <div className="pots-saved-total flex gap-8 bg-slate-200  pl-5 px-24 pt-7 rounded-md mb-8">
           <div className="pots-saved-total-img">
             <img className="pots-image w-11" src={savedSign} alt="saved" />
@@ -82,13 +85,14 @@ const Pots = ({ pots, card }) => {
               ${saved}
             </h2>
           </div>
+          {!card && <AddPot handleAdd={receiveNewPot} />}
         </div>
 
         <div
           className={
             card
               ? "pots-more grid grid-rows-2 grid-cols-2 gap-4 ml-8"
-              : "flex flex-col gap-4 "
+              : "flex flex-col gap-4 w-full "
           }
         >
           {potsUpdated.map((pot) => (
