@@ -67,7 +67,11 @@ const Pots = ({ pots, card }) => {
           )}
         </div>
       </div>
-      <div className={card ? "pots-content flex flex-row" : "flex flex-col "}>
+      <div
+        className={
+          card ? "pots-content flex flex-row" : "flex flex-col max-w-screen-lg"
+        }
+      >
         <div className="pots-saved-total flex gap-8 bg-slate-200  pl-5 px-24 pt-7 rounded-md mb-8">
           <div className="pots-saved-total-img">
             <img className="pots-image w-11" src={savedSign} alt="saved" />
@@ -84,7 +88,7 @@ const Pots = ({ pots, card }) => {
           className={
             card
               ? "pots-more grid grid-rows-2 grid-cols-2 gap-4 ml-8"
-              : "w-full flex flex-col gap-4"
+              : "flex flex-col gap-4 "
           }
         >
           {potsUpdated.map((pot) => (

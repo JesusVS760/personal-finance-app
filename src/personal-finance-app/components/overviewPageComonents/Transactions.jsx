@@ -71,14 +71,18 @@ const Transactions = ({ transactionValues, card, pageIdentifier }) => {
       <div
         className={
           isCard
-            ? "max-h-96	flex flex-col"
+            ? "max-h-96	flex flex-col "
             : "flex flex-wrap max-h-screen overflow-y-auto"
         }
       >
         {displayPreview.map((transaction) => (
           <div
             key={`${pageId}-${transaction.name}`}
-            className="transactions-card flex w-4/5 mb-2"
+            className={
+              card
+                ? "transactions-card flex  mb-2"
+                : "transactions-card flex w-4/5 mb-2"
+            }
           >
             <div className="transaction-info  mr-auto flex align-middle justify-center gap-2">
               <img
@@ -88,7 +92,7 @@ const Transactions = ({ transactionValues, card, pageIdentifier }) => {
               />
               <p>{transaction.name}</p>
             </div>
-            <div className="transactions-value ml-auto">
+            <div className="transactions-value ">
               <div className="transaction-amt flex">
                 <div
                   className={
