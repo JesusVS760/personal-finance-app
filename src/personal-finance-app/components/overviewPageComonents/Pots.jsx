@@ -6,6 +6,7 @@ import AddPot from "./AddPot";
 const Pots = ({ pots, card }) => {
   const [saved, setSaved] = useState(0);
   const [potsUpdated, setPotsUpdated] = useState([]);
+  const [showCard, setShowCard] = useState(true);
 
   const navigate = useNavigate();
 
@@ -45,9 +46,22 @@ const Pots = ({ pots, card }) => {
   };
 
   // callback function for receiving new pots
-  const receiveNewPot = (pot) => {
-    setPotsUpdated(...potsUpdated, pot);
-    console.log(pot);
+  const receiveNewPot = ({
+    name: userInput,
+    target: targetInput,
+    amount: amountInput,
+  }) => {
+    setPotsUpdated(
+      (prevValue) =>
+        prevValue +
+        {
+          name: userInput,
+          target: targetInput,
+          amount: amountInput,
+        }
+    );
+    console.log({ name: userInput, target: targetInput, amount: amountInput });
+    setShowCard(false);
   };
 
   return (
@@ -75,7 +89,7 @@ const Pots = ({ pots, card }) => {
         </div>
       </div>
       <div className={card ? "pots-content flex flex-row" : "flex flex-col "}>
-        <div className="pots-saved-total flex gap-8 bg-slate-200  pl-5 px-24 pt-7 rounded-md mb-8">
+        <div className="pots-saved-total flex   gap-8 bg-slate-200  pl-5 px-24 pt-7 rounded-md mb-8 ">
           <div className="pots-saved-total-img">
             <img className="pots-image w-11" src={savedSign} alt="saved" />
           </div>
@@ -85,7 +99,7 @@ const Pots = ({ pots, card }) => {
               ${saved}
             </h2>
           </div>
-          {!card && <AddPot handleAdd={receiveNewPot} />}
+          {!card && showCard && <AddPot handleAdd={receiveNewPot} />}
         </div>
 
         <div
