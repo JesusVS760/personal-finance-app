@@ -16,7 +16,7 @@ const AddPot = ({ handleAdd }) => {
     if (userInput === "" || amountInput === "" || targetInput === "") {
       console.log("Please Enter Pot Before Submitting");
     } else {
-      handleAdd({ name: userInput, target: targetInput, amount: amountInput });
+      handleAdd({ name: userInput, target: targetInput, total: amountInput });
     }
   }
 

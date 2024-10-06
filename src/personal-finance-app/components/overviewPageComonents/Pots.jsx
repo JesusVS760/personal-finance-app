@@ -49,18 +49,18 @@ const Pots = ({ pots, card }) => {
   const receiveNewPot = ({
     name: userInput,
     target: targetInput,
-    amount: amountInput,
+    total: amountInput,
   }) => {
-    setPotsUpdated(
-      (prevValue) =>
-        prevValue +
-        {
-          name: userInput,
-          target: targetInput,
-          amount: amountInput,
-        }
-    );
-    console.log({ name: userInput, target: targetInput, amount: amountInput });
+    setPotsUpdated((prevValue) => [
+      ...prevValue,
+      { name: userInput, target: targetInput, total: amountInput },
+    ]);
+    console.log("success: ", {
+      name: userInput,
+      target: targetInput,
+      total: amountInput,
+    });
+
     setShowCard(false);
   };
 
@@ -117,7 +117,7 @@ const Pots = ({ pots, card }) => {
               )} pl-4`}
             >
               <h5>{pot.name}</h5>
-              <h2 className="font-bold">${pot.total}</h2>
+              <h2 className="font-bold">${parseInt(pot.total).toFixed(2)}</h2>
             </div>
           ))}
         </div>

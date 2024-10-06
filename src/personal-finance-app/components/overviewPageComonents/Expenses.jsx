@@ -6,7 +6,7 @@ const Expenses = ({ expenses }) => {
   return (
     <div className="expenses-container bg-white">
       <h4 className="text-2xl">Expenses</h4>
-      <h1 className="font-bold  text-3xl">${expense}</h1>
+      <h1 className="font-bold  text-3xl">${expense.toFixed(2)}</h1>
     </div>
   );
 };

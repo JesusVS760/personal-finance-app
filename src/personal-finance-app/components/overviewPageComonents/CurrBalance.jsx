@@ -7,7 +7,7 @@ const CurrBalance = ({ currBalance }) => {
   return (
     <div className="curr-balance-container">
       <h4 className="text-2xl">Current Balance</h4>
-      <h1 className="font-bold  text-3xl">${balance}</h1>
+      <h1 className="font-bold  text-3xl">${balance.toFixed(2)}</h1>
     </div>
   );
 };
