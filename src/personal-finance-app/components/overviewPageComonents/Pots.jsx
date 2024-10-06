@@ -51,15 +51,33 @@ const Pots = ({ pots, card }) => {
     target: targetInput,
     total: amountInput,
   }) => {
-    setPotsUpdated((prevValue) => [
-      ...prevValue,
-      { name: userInput, target: targetInput, total: amountInput },
-    ]);
+    const newObj = {
+      name: userInput,
+      target: targetInput,
+      total: amountInput,
+    };
+
+    setPotsUpdated((prevValue) => [...prevValue, newObj]);
     console.log("success: ", {
       name: userInput,
       target: targetInput,
       total: amountInput,
     });
+
+    fetch("http://localhost:5000/data.json", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newObj),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
 
     setShowCard(false);
   };
