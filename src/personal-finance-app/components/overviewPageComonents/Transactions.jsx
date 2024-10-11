@@ -75,9 +75,9 @@ const Transactions = ({ transactionValues, card, pageIdentifier }) => {
             : "flex flex-wrap max-h-screen overflow-y-auto"
         }
       >
-        {displayPreview.map((transaction) => (
+        {displayPreview.map((transaction, index) => (
           <div
-            key={`${pageId}-${transaction.name}`}
+            key={`${pageId}-${transaction.id || index}`}
             className={
               card
                 ? "transactions-card flex  mb-2"

@@ -4,6 +4,7 @@ const AddPot = ({ handleAdd, addPot }) => {
   const [userInput, setUserInput] = useState("");
   const [amountInput, setAmountInput] = useState(0);
   const [targetInput, setTargetInput] = useState(0);
+  const [isValid, setIsValid] = useState(false);
 
   function handleSubmitPot(e) {
     e.preventDefault();
@@ -26,10 +27,16 @@ const AddPot = ({ handleAdd, addPot }) => {
             <div className="pot-name">
               <h5>Name:</h5>
               <input
-                onChange={(e) => setUserInput(e.target.value)}
+                onChange={(e) => {
+                  setUserInput(e.target.value), setIsValid(true);
+                }}
                 placeholder="e.g Birthday Party"
                 type="text"
-                className="p-2 text-black"
+                className={
+                  isValid
+                    ? "p-2 text-black"
+                    : "p-2 text-black border-solid	border-red-600"
+                }
               />
             </div>
             <div className="amount-name mt-2">
