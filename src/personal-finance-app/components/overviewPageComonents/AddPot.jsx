@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-const AddPot = ({ handleAdd }) => {
-  const [addPot, setAddPot] = useState(false);
+const AddPot = ({ handleAdd, addPot }) => {
   const [userInput, setUserInput] = useState("");
   const [amountInput, setAmountInput] = useState(0);
   const [targetInput, setTargetInput] = useState(0);
-
-  // useEffect(() => {
-  //   console.log(userInput);
-  //   console.log(amountInput);
-  // }, [userInput, amountInput]);
 
   function handleSubmitPot(e) {
     e.preventDefault();
@@ -22,11 +16,10 @@ const AddPot = ({ handleAdd }) => {
 
   return (
     <div>
-      <button onClick={() => setAddPot(!addPot)}>Add Pot</button>
       {addPot ? (
         <form
           action="submit"
-          className="absolute p-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold bg-slate-500 rounded-md"
+          className="p-20 text-white font-bold bg-gray-500 rounded-md"
         >
           <h1 className="text-2xl">Add A Pot</h1>
           <div className="add-pot-info flex flex-col ">

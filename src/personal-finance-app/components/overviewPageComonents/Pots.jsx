@@ -7,6 +7,7 @@ const Pots = ({ pots, card }) => {
   const [saved, setSaved] = useState(0);
   const [potsUpdated, setPotsUpdated] = useState([]);
   const [showCard, setShowCard] = useState(true);
+  const [addPot, setAddPot] = useState(false);
 
   const navigate = useNavigate();
 
@@ -86,8 +87,8 @@ const Pots = ({ pots, card }) => {
     <div
       className={
         card
-          ? "pots-container rounded-xl p-7 max-w-2xl bg-white mt-10"
-          : "flex flex-col w-full"
+          ? "  pots-container rounded-xl p-7 max-w-2xl bg-white mt-10"
+          : "relative flex flex-col w-full"
       }
     >
       <div className="pots-heading flex flex-row">
@@ -106,7 +107,13 @@ const Pots = ({ pots, card }) => {
           )}
         </div>
       </div>
-      <div className={card ? "pots-content flex flex-row" : "flex flex-col "}>
+      <div
+        className={
+          card
+            ? "pots-content flex flex-row"
+            : "flex flex-col  max-w-[60vw] w-[60vw]"
+        }
+      >
         <div className="pots-saved-total flex   gap-8 bg-slate-200  pl-5 px-24 pt-7 rounded-md mb-8 ">
           <div className="pots-saved-total-img">
             <img className="pots-image w-11" src={savedSign} alt="saved" />
@@ -116,8 +123,20 @@ const Pots = ({ pots, card }) => {
             <h2 className="saved-amount text-black font-bold text-3xl">
               ${saved}
             </h2>
+            {!card && (
+              <button
+                className="text-black font-bold"
+                onClick={() => setAddPot(!addPot)}
+              >
+                Add Pot
+              </button>
+            )}
           </div>
-          {!card && showCard && <AddPot handleAdd={receiveNewPot} />}
+          <div className="absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            {!card && showCard && (
+              <AddPot addPot={addPot} handleAdd={receiveNewPot} />
+            )}
+          </div>
         </div>
 
         <div
